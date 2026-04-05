@@ -1,0 +1,141 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=Instrument+Serif:ital@1&family=Plus+Jakarta+Sans:wght@500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 0 0% 100%;
+    --foreground: 0 0% 10%;
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 10%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 10%;
+    --primary: 155 58% 60%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 140 20% 97%;
+    --secondary-foreground: 0 0% 10%;
+    --muted: 140 14% 96%;
+    --muted-foreground: 0 0% 45%;
+    --accent: 150 70% 92%;
+    --accent-foreground: 155 58% 40%;
+    --destructive: 0 84% 60%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 0 0% 92%;
+    --input: 0 0% 92%;
+    --ring: 155 58% 60%;
+    --radius: 1rem;
+
+    --glass-bg: rgba(255, 255, 255, 0.7);
+    --glass-border: rgba(0, 0, 0, 0.05);
+    --glass-shadow: 0 4px 24px rgba(0, 0, 0, 0.04);
+    --glass-shadow-hover: 0 8px 32px rgba(0, 0, 0, 0.08);
+    --mint: 155 58% 60%;
+    --mint-glow: 150 70% 92%;
+
+    --sidebar-background: 0 0% 100%;
+    --sidebar-foreground: 0 0% 30%;
+    --sidebar-primary: 155 58% 60%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 150 70% 92%;
+    --sidebar-accent-foreground: 155 58% 40%;
+    --sidebar-border: 0 0% 94%;
+    --sidebar-ring: 155 58% 60%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+    font-family: 'Inter', sans-serif;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Inter', sans-serif;
+    font-weight: 800;
+  }
+}
+
+@layer components {
+  .glass-card {
+    background: var(--glass-bg);
+    backdrop-filter: blur(6px);
+    -webkit-backdrop-filter: blur(6px);
+    border: 1px solid var(--glass-border);
+    border-radius: 1rem;
+    box-shadow: var(--glass-shadow);
+    transition: all 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .glass-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--glass-shadow-hover);
+  }
+  .glass-sidebar {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-right: 1px solid var(--glass-border);
+  }
+  .font-heading {
+    font-family: 'Inter', sans-serif;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+  }
+  .font-accent {
+    font-family: 'Instrument Serif', serif;
+    font-style: italic;
+  }
+  .font-label {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-weight: 700;
+  }
+  .btn-primary {
+    @apply rounded-full uppercase text-sm font-label tracking-wider px-6 py-2.5;
+    background: hsl(var(--primary));
+    color: hsl(var(--primary-foreground));
+    transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .btn-primary:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px hsl(155 58% 60% / 0.3);
+  }
+  .btn-secondary {
+    @apply rounded-full uppercase text-sm font-label tracking-wider px-6 py-2.5;
+    background: hsl(var(--muted));
+    color: hsl(var(--foreground));
+    transition: all 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .btn-secondary:hover {
+    background: hsl(var(--border));
+  }
+  .bg-grid {
+    background-image: 
+      linear-gradient(rgba(0,0,0,0.03) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(0,0,0,0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+  }
+  .animate-entry {
+    animation: entryFade 0.6s cubic-bezier(0.22, 1, 0.36, 1) both;
+  }
+  .animate-entry-1 { animation-delay: 0.05s; }
+  .animate-entry-2 { animation-delay: 0.1s; }
+  .animate-entry-3 { animation-delay: 0.15s; }
+  .animate-entry-4 { animation-delay: 0.2s; }
+  .animate-entry-5 { animation-delay: 0.25s; }
+  .animate-entry-6 { animation-delay: 0.3s; }
+}
+
+@keyframes entryFade {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
